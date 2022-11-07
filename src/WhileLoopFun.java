@@ -12,7 +12,9 @@ public class WhileLoopFun {
         int x = y.length();
         String digit = "";
         while (x >= 0){
-            System.out.println(y.substring(x));
+            digit = y.substring(x);
+            y = y.substring(0,x);
+            System.out.println(digit);
             x--;
         }
     }
@@ -67,9 +69,10 @@ public class WhileLoopFun {
      */
     public int maxDoubles(int number, int threshold) {
         int count = 0;
-        int product = 0;
+        int product = number * 2;
         while (product <= threshold){
-            if (number * 2 <= threshold){
+            if (product <= threshold){
+                product *= 2;
                 count++;
             }else {  }
         }
@@ -89,12 +92,18 @@ public class WhileLoopFun {
      but 1 has only a single divisor! (don’t believe it? Google it!)
      */
     public boolean isPrime(int number) {
-        if (number == 1 || number == 2){
+        if (number == 1 ) {
             return false;
-        }else if (number % 2 != 0) {
+        }else if (number == 2){
             return true;
-        }else {
+        }else if (number % 2 == 0) {
             return false;
+        }else {
+            if (number % 3 == 0){
+                return false;
+            }else {
+                return true;
+            }
         }
     }
 }
